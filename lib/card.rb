@@ -10,15 +10,15 @@ def initialize(question, answer, category)
 end
 
 def question
-  p @question
+  return @question
 end
 
 def answer
-  p @answer
+  return @answer
 end
 
 def category
-  p @category
+  return @category
 end
 
 
