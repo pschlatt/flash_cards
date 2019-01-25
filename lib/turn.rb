@@ -13,10 +13,6 @@ def correct?
   @guess == card.answer
 end
 
-#def card
-#  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-#end
-
 def feedback
   if @guess == card.answer
     return "Correct!"
@@ -24,5 +20,6 @@ def feedback
     return "Incorrect"
   end
 end
+
 
 end

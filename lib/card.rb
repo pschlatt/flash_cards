@@ -4,8 +4,8 @@ attr_accessor :question,
               :category
 
 def initialize(question, answer, category)
-  @question = # QUESTION:
-  
+  @question = question
+
   @answer = answer
   @category = category
 end
