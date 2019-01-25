@@ -36,6 +36,13 @@ def test_for_correct
   refute turn3.correct?
 end
 
+def test_for_incorrect_feedback
+  card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+  turn = Turn.new("Saturn", card)
+
+  assert_equal "Incorrect", turn.feedback
+end
+
 def test_for_feedback
   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   turn1 = Turn.new("Juneau", card)
