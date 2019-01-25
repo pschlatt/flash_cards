@@ -1,32 +1,26 @@
+require "./lib/card"
+
 class Turn
-  attr_accessor :string
-                :guess
-                :card
-                :correct?
-                :feedback
+  attr_reader   :guess, :card
 
-def initialize(string, card)
-@string = string
+def initialize(guess, card)
 @card = card
+@guess = guess
 end
 
-def guess
-  card.answer
-end
 
 def correct?
-  guess == card.answer
-  return
+  @guess == card.answer
 end
 
-def card
-  card = Card.new
-end
+#def card
+#  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+#end
 
 def feedback
-  if correct?
-    return "Correct"
-  elsif !correct?
+  if @guess == card.answer
+    return "Correct!"
+  elsif @guess != card.answer
     return "Incorrect"
   end
 end
