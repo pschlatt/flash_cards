@@ -1,7 +1,5 @@
 
 
-
-
 class Round
 attr_reader :deck, :turns
 
@@ -44,5 +42,36 @@ attr_reader :deck, :turns
    percent = (number_correct_by_category(category).to_f / (turns_in_category)) * 100
   end
 
+
+  def start
+
+
+    puts "Welcome! You're playing with #{deck.cards.count} cards"
+    puts "-" * 79
+    questions = deck.cards.map do |card|
+      "This is card number #{deck.cards.index(card)} of #{deck.cards.count}."
+      "Question: #{card.question}"
+    end
+
+    questions.each do |question|
+      puts "This is card number #{turns.count + 1} out of #{deck.cards.count}"
+      puts question
+      input = gets.chomp.downcase.capitalize
+      take_turn(input)
+      puts turns.last.feedback
+
+    end
+
+    puts "*** Game over! ***"
+    puts "You had #{number_correct} correct guesses out of #{deck.cards.count} for a total score of #{percent_correct.to_i}%"
+
+
+
+    category.each do |card|
+    puts "#{card.category.to_s} - #{percent_correct_by_category(card.category).to_i} % correct"
+    end
+    puts ""
+    puts ""
+  end
 
 end
