@@ -1,6 +1,4 @@
-require './lib/card'
-require './lib/deck'
-require './lib/turn'
+
 
 
 
@@ -13,11 +11,11 @@ attr_reader :deck, :turns
   end
 
   def take_turn(guess)
-       new_turns = []
-       new_turns << Turn.new(guess, current_card)
+
+       new_turns = Turn.new(guess, current_card)
        @turns << new_turns
        @deck.cards.rotate!
-      return  new_turns
+      return new_turns
   end
 
 
